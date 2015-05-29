@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Wage_Codebase>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Wage_Codebase>
+    </modules>
+</config>

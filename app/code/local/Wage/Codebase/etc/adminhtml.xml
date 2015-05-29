@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <codebase module="codebase">
+            <title>Codebase Dashboard</title>
+            <sort_order>15</sort_order>
+            <action>codebase/adminhtml_wagentodashboard</action>
+            <children>
+                <open_tickets translate="title" module="codebase">
+                    <title>Open Tickets</title>
+                    <action>codebase/adminhtml_tickets</action>
+                </open_tickets>
+                <projects translate="title" module="codebase">
+                    <title>Projects</title>
+                    <action>codebase/adminhtml_projects</action>
+                    <children>
+                        <change_po translate="title" module="codebase">
+                            <title>Change User</title>
+                            <sort_order>10</sort_order>
+                            <action>codebase/adminhtml_changepo</action>
+                        </change_po>
+                    </children>
+                </projects>
+                <teams translate="title" module="codebase">
+                    <title>Teams</title>
+                    <action>codebase/adminhtml_teams</action>
+                    <children>
+                        <development translate="title" module="codebase">
+                            <title>Development</title>
+                            <sort_order>10</sort_order>
+                            <action>codebase/adminhtml_development</action>
+                        </development>
+                    </children>
+                </teams>
+                <wagento_reports translate="title" module="codebase">
+                    <title>Reports</title>
+                    <children>
+                        <tickets translate="title" module="codebase">
+                        <title>Tickets</title>
+                            <children>
+                                <non_estimated_tickets translate="title" module="codebase">
+                                    <title>Non Estimated Tickets</title>
+                                    <sort_order>10</sort_order>
+                                    <action>codebase/adminhtml_reports</action>
+                                </non_estimated_tickets>
+                                <over_estimate_tickets translate="title" module="codebase">
+                                    <title>Over Estimated Tickets</title>
+                                    <sort_order>15</sort_order>
+                                    <action>codebase/adminhtml_overestimate</action>
+                                </over_estimate_tickets>
+                                <over_logged_tickets translate="title" module="codebase">
+                                    <title>Tickets open over 8 hours</title>
+                                    <sort_order>17</sort_order>
+                                    <action>codebase/adminhtml_overloggedtickets</action>
+                                </over_logged_tickets>
+                                <ticketsreport translate="title" module="codebase">
+                                    <title>Estimated time updated tickets</title>
+                                    <sort_order>18</sort_order>
+                                    <action>codebase/adminhtml_ticketsreport</action>
+                                </ticketsreport>
+                                <prioritytickets translate="label" module="codebase">
+                                    <title>Critical and High Priority Tickets</title>
+                                    <sort_order>20</sort_order>
+                                    <action>codebase/adminhtml_prioritytickets</action>
+                                </prioritytickets>
+                                <productownertickets translate="label" module="codebase">
+                                    <title>Product Owner Non Updated Tickets</title>
+                                    <sort_order>50</sort_order>
+                                    <action>codebase/adminhtml_productownertickets</action>
+                                </productownertickets>
+                            </children>
+                        </tickets>
+                        <billing translate="title" module="codebase">
+                        <title>Billing</title>
+                            <children>
+                                <billing_report translate="title" module="codebase">
+                                    <title>Billable Report</title>
+                                    <sort_order>9</sort_order>
+                                    <action>codebase/adminhtml_billingreport</action>
+                                </billing_report>
+                                <report_by_user translate="title" module="codebase">
+                                    <title>Open Ticket Billing Report</title>
+                                    <sort_order>20</sort_order>
+                                    <action>codebase/adminhtml_billing</action>
+                                </report_by_user>
+                            </children>
+                        </billing>
+                        <po translate="title" module="codebase">
+                        <title>Product Owner</title>
+                            <children>
+                                <daily_report translate="title" module="codebase">
+                                    <title>Daily Report</title>
+                                    <sort_order>10</sort_order>
+                                    <action>codebase/adminhtml_dailyreport</action>
+                                </daily_report>
+                                <estimated_developer_work translate="title" module="codebase">
+                                    <title>Estimated work by developer</title>
+                                    <sort_order>10</sort_order>
+                                    <action>codebase/adminhtml_developerwork</action>
+                                </estimated_developer_work>
+                                <developer_capacity translate="title" module="codebase">
+                                    <title>Developer Capacity</title>
+                                    <sort_order>10</sort_order>
+                                    <action>codebase/adminhtml_developercapacity</action>
+                                </developer_capacity>
+                                <reassignment translate="title" module="codebase">
+                                    <title>Reassign to Product Owner</title>
+                                    <sort_order>60</sort_order>
+                                    <action>codebase/adminhtml_reassignment</action>
+                                </reassignment>
+                                <estimatevsactual translate="title" module="codebase">
+                                    <title>Estimates Hours vs Actual Hours</title>
+                                    <sort_order>50</sort_order>
+                                    <action>codebase/adminhtml_evsa</action>
+                                </estimatevsactual>
+                                <ownerreport translate="title" module="codebase">
+                                    <title>Product owner work load</title>
+                                    <sort_order>50</sort_order>
+                                    <action>codebase/adminhtml_ownerreport</action>
+                                </ownerreport>
+                            </children>
+                        </po>
+                        <project translate="title" module="codebase">
+                        <title>Projects</title>
+                            <children>
+                                <projectreport translate="title" module="codebase">
+                                    <title>Report by Project</title>
+                                    <sort_order>70</sort_order>
+                                    <action>codebase/adminhtml_projectreport</action>
+                                </projectreport>
+                                <milestones translate="title" module="codebase">
+                                    <title>Milestones wise report</title>
+                                    <sort_order>30</sort_order>
+                                    <action>codebase/adminhtml_milestones</action>
+                                </milestones>
+                            </children>
+                        </project>
+                        <client translate="title" module="codebase">
+                        <title>Client</title>
+                            <children>
+                                <clientreport translate="title" module="codebase">
+                                    <title>Ticket assigned to client - Report</title>
+                                    <sort_order>70</sort_order>
+                                    <action>codebase/adminhtml_clientreport</action>
+                                </clientreport>
+                                <weekly_client_hours translate="title" module="codebase">
+                                    <title>Weekly Client Hours</title>
+                                    <sort_order>30</sort_order>
+                                    <action>codebase/adminhtml_client</action>
+                                </weekly_client_hours>
+                            </children>
+                        </client>
+                    </children>
+                </wagento_reports>
+                <charts translate="title" module="codebase">
+                    <title>Charts</title>
+                    <action>codebase/adminhtml_charts</action>
+                    <children>
+                        <daily_time translate="title" module="codebase">
+                            <title>Logged Time</title>
+                            <sort_order>0</sort_order>
+                            <action>codebase/adminhtml_charts</action>
+                        </daily_time>
+                    </children>
+                </charts>
+            </children>
+        </codebase>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <codebase translate="title" module="codebase">
+                                        <title>Wagneto Codebase integration</title>
+                                    </codebase>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

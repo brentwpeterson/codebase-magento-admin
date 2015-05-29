@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <wage translate="label" module="codebase">
+            <label>Wagento</label>
+            <sort_order>50</sort_order>
+        </wage>
+    </tabs>
+    <sections>
+        <codebase translate="label" module="codebase">
+            <label>Codebase Integration</label>
+            <sort_order>10</sort_order>
+            <tab>wage</tab>
+            <show_in_default>1</show_in_default>se
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="codebase">
+                    <label>Settings</label>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <host translate="label" module="codebase">
+                            <label>API Host</label>
+                            <comment>needs to begin with http:// or https://</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </host>
+                        <apiuser translate="label" module="codebase">
+                            <label>API user</label>
+                            <comment></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>05</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apiuser>
+                        <apikey translate="label" module="codebase">
+                            <label>API Key</label>
+                            <comment></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </apikey>
+                        <codebaselog translate="label">
+                            <label>Enable debug logs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </codebaselog>
+                    </fields>
+                </general>
+                <exclude translate="label" module="codebase">
+                    <label>Exclude Projects</label>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <exclude_projects>
+                            <label>Exclude Projects from all API updates</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>codebase/system_config_source_projects</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </exclude_projects>
+                    </fields>
+                </exclude>
+                <tickets translate="label" module="codebase">
+                    <label>Tickets</label>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ttl translate="label">
+                            <label>Ticket Time To Live</label>
+                            <comment>Measure in days. Leave empty or set to 0 to disable auto-close ticket feature</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ttl>
+                        <close_comment translate="label">
+                            <label>Comment when close</label>
+                            <comment>This comment will be appended to the ticket when it's closed by Codebase API</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </close_comment>
+                        <billable_statuses translate="label">
+                            <label>Ended ticket statuses</label>
+                            <comment>List of ticket statuses that will be counted as Ended/Closed. Delimit by semicolon</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </billable_statuses>
+                        <bugfix_types translate="label">
+                            <label>Bug Fixes Ticket Type</label>
+                            <comment>List of Ticket Type that will be counted as Bug Fixes. Delimit by semicolon</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </bugfix_types>
+                        <update_estimate translate="label">
+                            <label>Updated Estimated time for all tickets</label>
+                            <comment>This will update estimated time with total logged time on daily basis.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </update_estimate>
+                        <reassign_tickets translate="label">
+                            <label>Tickets Reassignment to Backlog</label>
+                            <comment>This will Reassign tickets to backlog on daily basis if developer has work for more than 7 hours.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reassign_tickets>
+                        <extratickets_reassign translate="label">
+                            <label>Extra Tickets Reassignment to Backlog</label>
+                            <comment>Developer's having extra tickets for more than 1 day will be reassign to backlog.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </extratickets_reassign>
+                    </fields>
+                </tickets>
+                <priorities translate="label" module="codebase">
+                    <label>Priorities</label>
+                    <sort_order>7</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ctl_to_high translate="label">
+                            <label>Reduce Critical tickets to High after being open for X days</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ctl_to_high>
+                        <high_to_norm translate="label">
+                            <label>Reduce High tickets to Normal after being open for X days</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </high_to_norm>
+                        <update_comment translate="label">
+                            <label>Comment when update priority</label>
+                            <comment>This comment will be appended to the ticket when it's priority changed by Codebase API</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </update_comment>
+                        <mass_update_comment translate="label">
+                            <label>Comment when update priority through mass update</label>
+                            <comment>This comment will be appended to the ticket when it's priority changed by Codebase API using Mass update in Manage ticket section</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mass_update_comment>
+                    </fields>
+                </priorities>
+                <status translate="label" module="codebase">
+                    <label>Statuses</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <append_comment translate="label">
+                            <label>Append Comments</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </append_comment>
+                        <delete translate="label">
+                            <label>Delete after closing</label>
+                            <comment>Delete selected tickets after updating ticket status to Close</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delete>
+                    </fields>
+                </status>
+                <billing translate="label" module="codebase">
+                    <label>Billing Report</label>
+                    <sort_order>12</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <reduction_reason translate="label">
+                            <label>Reuction Reasons</label>
+                            <comment>Please insert each reason in new row.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reduction_reason>
+                    </fields>
+                </billing>
+                <report translate="label" module="codebase">
+                    <label>Reports</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <dailyreport_ids translate="label" module="codebase">
+                            <label>Email Recipients who receive all developer's report by mail</label>
+                            <comment>If you have multiple email ids then please add it comma separated</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>03</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dailyreport_ids>
+                        <recipient translate="label" module="codebase">
+                            <label>Email Recipients for non estimated tickets report</label>
+                            <comment>If you have multiple email ids then please add it comma separated</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>05</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </recipient>
+                        <exclude_category translate="label" module="codebase">
+                            <label>Exclude Category in non estimate report</label>
+                            <comment>If you have multiple Categories to exclude then please add comma separated</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>07</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </exclude_category>
+                        <over_recipient translate="label" module="codebase">
+                            <label>Email Recipients for over estimate tickets report</label>
+                            <comment>If you have multiple email ids then please add it comma separated</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </over_recipient>
+                        <criticalhigh_recipient translate="label" module="codebase">
+                            <label>Email Recipients for Critical and High tickets report</label>
+                            <comment>If you have multiple email ids then please add it comma separated</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </criticalhigh_recipient>
+                        <utc_users translate="label" module="codebase">
+                            <label>Users which fall near UTC timezone</label>
+                            <comment>Insert comma separated email ids which users fall near UTC timezone</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </utc_users>
+                    </fields>
+                </report>
+                <splittickets translate="label" module="codebase">
+                    <label>Split Tickets</label>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <hours translate="label" module="codebase">
+                            <label>Number of hours to enable split ticket feature</label>
+                            <comment>If ticket estimation is more than this number then it would require to split into multiple tickets</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>03</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </hours>
+                        <message translate="label" module="codebase">
+                            <label>Split ticket message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>05</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </message>
+                    </fields>
+                </splittickets>
+                <backlog translate="label" module="codebase">
+                    <label>Back Log</label>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <autofill>
+                            <label>Enable Autofill Backlog</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </autofill>
+                        <limit>
+                            <label>Ticket Limit</label>
+                            <comment>Number of tickets a people can hold</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </limit>
+                        <company>
+                            <label>Companies</label>
+                            <comment>Take tickets from these companies</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>codebase/system_config_source_companies</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </company>
+                        <backlog_user translate="label" module="codebase">
+                            <label>Backlog User Id</label>
+                            <comment>Set the Backlog User Id that you want free-tickets get assigned to</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>codebase/system_config_source_users</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </backlog_user>
+                        <exclude_users>
+                            <label>Exclude Users</label>
+                            <comment>These Users' tickets won't be touched</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>codebase/system_config_source_client</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </exclude_users>
+                        <exclude_projects>
+                            <label>Exclude Projects</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>codebase/system_config_source_projects</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </exclude_projects>
+                        <exclude_statuses>
+                            <label>Exclude Statues</label>
+                            <comment>Ticket with these statuses won't be moved to Backlog. delemite by semicolon</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </exclude_statuses>
+                    </fields>
+                </backlog>
+            </groups>
+        </codebase>
+    </sections>
+</config>

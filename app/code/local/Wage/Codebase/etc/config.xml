@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Wage_Codebase>
+            <version>3.0.4</version>
+        </Wage_Codebase>
+    </modules>
+    <admin>
+        <routers>
+            <codebase>
+                <use>admin</use>
+                <args>
+                    <module>Wage_Codebase</module>
+                    <frontName>codebase</frontName>
+                </args>
+            </codebase>    
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Wage_Codebase before="Mage_Adminhtml">Wage_Codebase</Wage_Codebase>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <global>
+        <helpers>
+            <codebase>
+                <class>Wage_Codebase_Helper</class>
+            </codebase>
+        </helpers>
+        <blocks>
+            <codebase>
+                <class>Wage_Codebase_Block</class>
+            </codebase>
+            <adminhtml>
+                <rewrite>
+                    <permissions_user_edit_tab_main>Wage_Codebase_Block_Adminhtml_Permissions_User_Edit_Tab_Main</permissions_user_edit_tab_main>
+                    <permissions_user_grid>Wage_Codebase_Block_Adminhtml_Permissions_User_Grid</permissions_user_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <codebase>
+                <class>Wage_Codebase_Model</class>
+                <resourceModel>codebase_mysql4</resourceModel>
+            </codebase>
+            <codebase_mysql4>
+                <class>Wage_Codebase_Model_Mysql4</class>
+                <entities>
+                    <tickets>
+                        <table>codebase_tickets</table>
+                    </tickets>
+                    <notes>
+                        <table>codebase_notes</table>
+                    </notes>
+                    <sentreport>
+                        <table>codebase_sent_reports</table>
+                    </sentreport>
+                    <ticketsreport>
+                        <table>codebase_tickets_report</table>
+                    </ticketsreport>
+                    <refreshtime>
+                        <table>codebase_refreshtime</table>
+                    </refreshtime>
+                    <activities>
+                        <table>codebase_activities</table>
+                    </activities>
+                    <time>
+                        <table>codebase_activities_time</table>
+                    </time>
+                    <projects>
+                        <table>codebase_projects</table>
+                    </projects>
+                    <teams>
+                        <table>codebase_teams</table>
+                    </teams>
+                    <projectindex>
+                        <table>codebase_project_index</table>
+                    </projectindex>
+                    <statuses>
+                        <table>codebase_statuses</table>
+                    </statuses>
+                    <priorities>
+                        <table>codebase_priorities</table>
+                    </priorities>
+                    <milestones>
+                        <table>codebase_milestones</table>
+                    </milestones>
+                    <users>
+                        <table>codebase_users</table>
+                    </users>
+                    <timetracking>
+                        <table>codebase_time_tracking</table>
+                    </timetracking>
+                    <changepo>
+                        <table>codebase_changepo</table>
+                    </changepo>
+                    <billing>
+                        <table>codebase_billing</table>
+                    </billing>
+                    <reports>
+                        <table>codebase_reports</table>
+                    </reports>
+                </entities>
+            </codebase_mysql4>
+        </models>
+        <resources>
+            <codebase_setup>
+                <setup>
+                    <module>Wage_Codebase</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </codebase_setup>
+            <codebase_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </codebase_write>
+            <codebase_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </codebase_read>
+        </resources>
+    </global>
+
+    <crontab>
+        <jobs>
+            <fetchProjects>
+                <schedule><cron_expr>48 3 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::importProjects</model></run>
+            </fetchProjects>
+
+            <!--<fetchTickets>-->
+                <!--<schedule><cron_expr>0 * * * *</cron_expr></schedule>-->
+                <!--<run><model>codebase/codebase::getTickets</model></run>-->
+            <!--</fetchTickets>-->
+
+            <fetchTimetracking>
+                <schedule><cron_expr>59 * * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::getTimetracking</model></run>
+            </fetchTimetracking>
+
+            <fetchUsers>
+                <schedule><cron_expr>03 3 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::fetchUsers</model></run>
+            </fetchUsers>
+
+            <fillBacklog>
+                <schedule><cron_expr>03 4 * * *</cron_expr></schedule>
+                <run><model>codebase/tickets::fillBacklog</model></run>
+            </fillBacklog>
+
+            <updateStatuses>
+                <schedule><cron_expr>0 4 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::getStatuses</model></run>
+            </updateStatuses>
+
+            <!--<fetchactivities>-->
+                <!--<schedule><cron_expr>0 * * * *</cron_expr></schedule>-->
+                <!--<run><model>codebase/codebase::getActivity</model></run>-->
+            <!--</fetchactivities>-->
+
+            <sendreport>
+                <schedule><cron_expr>0 5 1,2,3,4,5 * *</cron_expr></schedule>
+                <run><model>codebase/codebase::sendReports</model></run>
+            </sendreport>
+
+            <sendcriticalhighticketsreports>
+                <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::sendCriticalHighTicketsReports</model></run>
+            </sendcriticalhighticketsreports>
+
+            <sendoverestimatereport>
+                <schedule><cron_expr>0 6 1,2,3,4,5 * *</cron_expr></schedule>
+                <run><model>codebase/codebase::sendOverEstimateReports</model></run>
+            </sendoverestimatereport>
+
+            <!--<prepareAllData>-->
+                <!--<schedule><cron_expr>0 0 0 0 *</cron_expr></schedule>-->
+                <!--<run><model>codebase/codebase::initializeCodebaseData</model></run>-->
+            <!--</prepareAllData>-->
+
+            <developerreport>
+                <schedule><cron_expr>22 1 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::sendDeveloperReport</model></run>
+            </developerreport>
+
+            <alldeveloperreport>
+                <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::sendAllDeveloperReport</model></run>
+            </alldeveloperreport>
+
+            <closeTickets>
+                <schedule><cron_expr>0 0 * * 0</cron_expr></schedule>
+                <run><model>codebase/tickets::closeTickets</model></run>
+            </closeTickets>
+
+            <updatePriorities>
+                <schedule><cron_expr>45 2 * * *</cron_expr></schedule>
+                <run><model>codebase/tickets::updatePriorities</model></run>
+            </updatePriorities>
+
+            <getMilestones>
+                <schedule><cron_expr>31 2 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::getMilestones</model></run>
+            </getMilestones>
+
+            <!--<sendTicketQueReport>-->
+                <!--<schedule><cron_expr>0 3 * * *</cron_expr></schedule>-->
+                <!--<run><model>codebase/codebase::sendAllProjectsReport</model></run>-->
+            <!--</sendTicketQueReport>-->
+            <!--
+            <fetchusers>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::createUsers</model></run>
+            </fetchusers>
+            -->
+            <updateEstimatedTime>
+                <schedule><cron_expr>0 3 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::updateEstimatedTime</model></run>
+            </updateEstimatedTime>
+
+            <getTicketNotes>
+                <schedule><cron_expr>45 3 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::updateNoteTable</model></run>
+            </getTicketNotes>
+
+            <userrules>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::updateProjectsUser</model></run>
+            </userrules>
+
+            <splittickets>
+                <schedule><cron_expr>0 3 * * *</cron_expr></schedule>
+                <run><model>codebase/tickets::splitTickets</model></run>
+            </splittickets>
+
+            <reassignticketsbacklog>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::reassignticketsbacklog</model></run>
+            </reassignticketsbacklog>
+
+            <backupcodebase>
+                <schedule><cron_expr>* * * * 7</cron_expr></schedule>
+                <run><model>codebase/codebase::backupcodebase</model></run>
+            </backupcodebase>
+
+            <sendticketupdatetoproductowner>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::sendTicketUpdateToProductOwnerReport</model></run>
+            </sendticketupdatetoproductowner>
+            
+            <extraticketsreassignbacklog>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run><model>codebase/codebase::extraTicketsReassignBacklog</model></run>
+            </extraticketsreassignbacklog>
+
+        </jobs>
+    </crontab>
+
+    <adminhtml>       
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <report>
+                            <children>
+                                <codebase translate="title" module="codebase">
+                                    <title>Codebase Report</title>
+                                    <action>codebase/adminhtml_tickets</action>
+                                </codebase>
+                            </children>
+                        </report>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <codebase>
+                    <file>codebase.xml</file>
+                </codebase>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <codebase>
+            <status>
+                <append_comment>Ticket Closed By Wagento Codebase API Module.</append_comment>
+                <delete>0</delete>
+            </status>
+            <tickets>
+                <ttl>90</ttl>
+                <close_comment>This ticket has been closed automatically due to inactivity for a long time</close_comment>
+                <billable_statuses>invalid;completed;closed;hold</billable_statuses>
+                <bugfix_types>bug</bugfix_types>
+            </tickets>
+            <priorities>
+                <ctl_to_high>3</ctl_to_high>
+                <high_to_norm>14</high_to_norm>
+                <update_comment>Due to no update on ticket, priority has been changed by Wagento Codebase API Module.</update_comment>
+                <mass_update_comment>Priority changed from Magento admin panel.</mass_update_comment>
+            </priorities>
+            <backlog>
+                <autofill>0</autofill>
+                <limit>3</limit>
+                <backlog_user>123587</backlog_user>
+                <company>wagento</company>
+                <exclude_users>25980,25981,81073,114557,134126,123587,123584,119795,119792,119789,119786,27614</exclude_users>
+                <exclude_projects>88976</exclude_projects>
+                <exclude_statuses>In Progress;More information needed</exclude_statuses>
+            </backlog>
+        </codebase>
+    </default>
+</config> 
