@@ -292,6 +292,9 @@
     </adminhtml>
     <default>
         <codebase>
+            <general>
+                <fromemail>from@example.com</fromemail>
+            </general>
             <status>
                 <append_comment>Ticket Closed By Wagento Codebase API Module.</append_comment>
                 <delete>0</delete>

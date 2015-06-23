@@ -1,0 +1,5 @@
+app/etc/modules/Wage_Codebase.xml	app/etc/modules/Wage_Codebase.xml
+app/code/local/Wage/Codebase/	app/code/local/Wage/Codebase/
+js/cert/	js/cert/
+app/design/adminhtml/default/default/layout/codebase.xml	app/design/adminhtml/default/default/layout/codebase.xml
+app/design/adminhtml/default/default/template/codebase/	app/design/adminhtml/default/default/template/codebase/

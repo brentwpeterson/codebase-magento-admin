@@ -143,14 +143,18 @@ class Wage_Codebase_Model_Abstract {
         return $xml['ticket'];
     }
 
-    public function activity($find,$limit, $since,$permalink) {
+    public function activity($find,$limit, $since,$permalink=null) {
         $params = array(
             'raw' => 'true',
             'query' => $find,
             'limit' => $limit,
             'since' => $since
         );
-        $url = '/'.$permalink.'/activity?'.http_build_query($params);
+        if($permalink){
+            $url = '/'.$permalink.'/activity?'.http_build_query($params);
+        } else {
+            $url = '/activity?'.http_build_query($params);
+        }
         $xml = $this->object2array(simplexml_load_string($this->get($url),'SimpleXMLElement',LIBXML_NOCDATA));
         return $xml['event'];
     }

@@ -738,7 +738,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
         $mail->setToEmail($email);
         $mail->setBody($body);
         $mail->setSubject('Tickets - Without Estimation');
-        $mail->setFromEmail('sales@wagento.com');
+        $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
         $mail->setFromName("Open Tickets");
         $mail->setType('html');// You can use 'html' or 'text'
 
@@ -785,7 +785,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
         $mail->setToEmail($email);
         $mail->setBody($body);
         $mail->setSubject('Tickets - Over Estimation');
-        $mail->setFromEmail('sales@wagento.com');
+        $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
         $mail->setFromName("Open Tickets");
         $mail->setType('html');// You can use 'html' or 'text'
 
@@ -952,7 +952,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
             $mail->setToEmail($email);
             $mail->setBody($body);
             $mail->setSubject('Daily Report');
-            $mail->setFromEmail('sales@wagento.com');
+            $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
             $mail->setFromName("Daily Report");
             $mail->setType('html');// You can use 'html' or 'text'
 
@@ -1047,7 +1047,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
             $mail->setToEmail($email);
             $mail->setBody($body);
             $mail->setSubject('Daily Report');
-            $mail->setFromEmail('sales@wagento.com');
+            $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
             $mail->setFromName("Daily Report");
             $mail->setType('html');// You can use 'html' or 'text'
 
@@ -1422,7 +1422,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
             $mail = Mage::getModel('core/email');
             $mail->setBody($body);
             $mail->setSubject('Tickets report by Wagento');
-            $mail->setFromEmail('sales@wagento.com');
+            $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
             $mail->setFromName("Tickets Report");
             $mail->setType('html');// You can use 'html' or 'text'
 
@@ -1890,7 +1890,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
 //            $mail->setToEmail($email);
 //            $mail->setBody($body);
 //            $mail->setSubject('Daily Report');
-//            $mail->setFromEmail('sales@wagento.com');
+//            $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
 //            $mail->setFromName("Daily Report");
 //            $mail->setType('html');// You can use 'html' or 'text'
 //
@@ -1931,7 +1931,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
             $mail->setToEmail($email);
             $mail->setBody($body);
             $mail->setSubject("All Developer's Daily Report");
-            $mail->setFromEmail('sales@wagento.com');
+            $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
             $mail->setFromName("Developers Daily Report");
             $mail->setType('html');// You can use 'html' or 'text'
 
@@ -2023,7 +2023,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
             $mail = Mage::getModel('core/email');
             $mail->setBody($body);
             $mail->setSubject('Tickets report by Wagento');
-            $mail->setFromEmail('sales@wagento.com');
+            $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
             $mail->setFromName("Tickets Report");
             $mail->setType('html');// You can use 'html' or 'text'
 
@@ -2351,7 +2351,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
         $mail->setToEmail($email);
         $mail->setBody($body);
         $mail->setSubject('Critical and High Priority Tickets');
-        $mail->setFromEmail('sales@wagento.com');
+        $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
         $mail->setFromName("Critical and High Priority Tickets");
         $mail->setType('html');// You can use 'html' or 'text'
 
@@ -2412,7 +2412,7 @@ class Wage_Codebase_Model_Codebase extends Wage_Codebase_Model_Abstract{
                     $mail->setToEmail($email);
                     $mail->setBody($body);
                     $mail->setSubject('Tickets Needs updates from Product Owner');
-                    $mail->setFromEmail('sales@wagento.com');
+                    $mail->setFromEmail(Mage::getStoreConfig('codebase/general/fromemail'));
                     $mail->setFromName("Codebase");
                     $mail->setType('html'); // You can use 'html' or 'text'
 
