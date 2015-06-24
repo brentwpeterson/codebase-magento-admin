@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <menu>
-        <codebase module="codebase">
+        <project module="codebase">
          <title>Projects</title>
             <sort_order>15</sort_order>
             <action>codebase/adminhtml_wagentodashboard</action>
@@ -164,7 +164,7 @@
                     </children>
                 </charts>
             </children>
-        </codebase>
+        </project>
     </menu>
     <acl>
         <resources>
